@@ -7,6 +7,8 @@ import postRoutes from './routes/post.route.js';
 import commentRoutes from './routes/comment.route.js';
 import cookieParser from 'cookie-parser';
 import path from 'path';
+import job from "./cron/cron.js";
+
 
 dotenv.config();
 
@@ -18,6 +20,7 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
+  job.start();
 
 const __dirname = path.resolve();
 
